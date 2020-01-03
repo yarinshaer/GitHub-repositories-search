@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div ng-controller="HomeController">
+    <div class="container-fluid" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h1>Search Repositores</h1>
+                <div class="form-group">
+                    <input type="text" ng-model="search" name="search" class="form-control" />
+                </div>
+                <button id="searchBtn" ng-click="searchBtn()" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Repositories</h1><br />
+                <div class="row">
+                    <div class="col-sm-3" ng-repeat="repo in repositories.data.items">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">name: {{repo.name}}</h5>
+                                <a href="{{repo.html_url}}">Link</a>
+                                <p>Created at : {{repo.created_at | date: 'MMM d, y'}}<p />
+                                <p>Updated at: {{repo.updated_at | date: 'MMM d, y'}}</p>
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                <button class="btn btn-primary" ng-click="bookmark(repo.id, repo.name, repo.html_url)">save bookmark
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

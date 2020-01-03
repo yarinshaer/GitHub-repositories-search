@@ -1,0 +1,38 @@
+﻿@model List<Final.Models.Bookmark>
+@{
+    ViewBag.Title = "Bookmarked";
+}
+<div class="container-fluid" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Bookmared Repositories</h1>
+            @if (Model != null)
+            {
+                <table class="table" id="repositories">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Link <i class="fa fa-external-link-square" aria-hidden="true"></i></td>
+                            <td>Bookmark <i class="fa fa-bookmark" aria-hidden="true"></i></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var repo in Model)
+                        {
+                            <tr>
+                                <td>@repo.name</td>
+                                <td><a href="@repo.url">Link</a></td>
+                                <td><b>Yes</b></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No bookmarked repositories ...</p>
+            }
+        </div>
+        </div>
+    </div>
+
